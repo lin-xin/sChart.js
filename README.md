@@ -90,10 +90,17 @@ Default is 100.
 Number.The inner radius of a ring chart.
 Default is 700.
 
+#### colorList
+Array.The color list of a pie chart or ring chart.
+Default is ['#1E9FFF', '#13CE66', '#F7BA2A', '#FF4949', '#72f6ff'];
+
 #### legendColor
 String.The color of the legend text.
-Default is 100.
+Default is '#000000'.
 
 #### legendTop
 Number.Legend position of top.
 Default is 40.
+
+## License
+[MIT license](https://github.com/lin-xin/schart.js/blob/master/LICENCE).
