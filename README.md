@@ -48,52 +48,52 @@ new sChart('canvas', 'bar', data, {
 
 #### title
 String.The title of chart.
-Default is ==null==.
+Default is null.
 
 #### titleColor
 String.Title Color.
-Default is =='#000000'==.
+Default is '#000000'.
 
 #### titlePosition
 String.Title position.
-Default is =='top'==.
+Default is 'top'.
 
 #### bgColor
 String.The background color of chart.
-Default is =='#ffffff'==.
+Default is '#ffffff'.
 
 #### padding
 Number.Inside margin of chart.
-Default is ==50==.
+Default is 50.
 
 #### yEqual
 Number.The number of points on the Y axis.
-Default is ==5==.
+Default is 5.
 
 #### fillColor
 String.The color of bar chart or line chart.
-Default is =='#1E9FFF'==.
+Default is '#1E9FFF'.
 
 #### axisColor
 String.The color of the coordinate axis.
-Default is =='#666666'==.
+Default is '#666666'.
 
 #### contentColor
 String.The color of the horizontal lines of the content.
-Default is =='#eeeeee'==.
+Default is '#eeeeee'.
 
 #### radius
 Number.The radius of a pie chart or ring chart.
-Default is ==100==.
+Default is 100.
 
 #### innerRadius
 Number.The inner radius of a ring chart.
-Default is ==700==.
+Default is 700.
 
 #### legendColor
 String.The color of the legend text.
-Default is ==100==.
+Default is 100.
 
 #### legendTop
 Number.Legend position of top.
-Default is ==40==.
+Default is 40.
