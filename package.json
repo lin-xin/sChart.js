@@ -1,0 +1,30 @@
+{
+  "name": "schart.js",
+  "version": "1.0.0",
+  "description": "Small & aimple HTML5 charts",
+  "main": "lib/sChart.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lin-xin/schart.js.git"
+  },
+  "keywords": [
+    "schart.js",
+    "charts",
+    "图表",
+    "js插件"
+  ],
+  "author": "linxin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lin-xin/schart.js/issues"
+  },
+  "homepage": "http://test.omwteam.com/sChart/"
+}
