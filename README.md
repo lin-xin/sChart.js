@@ -17,6 +17,11 @@ The following chart types are implemented:
 - Ring Charts
 
 ## Usage
+Install:
+```
+npm install schart.js
+```
+
 Create a Canvas element with an id attribute, width and height:
 
 ```html
