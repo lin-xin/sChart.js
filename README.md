@@ -107,5 +107,8 @@ Default is '#000000'.
 Number.Legend position of top.
 Default is 40.
 
+## Relevant
+[vue-schart](https://github.com/lin-xin/schart.js) : Vue.js wrapper for sChart.js
+
 ## License
 [MIT license](https://github.com/lin-xin/schart.js/blob/master/LICENCE).
