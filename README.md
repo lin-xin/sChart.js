@@ -2,11 +2,11 @@
 > :bar_chart: *Small &amp; simple HTML5 charts*
 
 ## Demo
-[click here](http://test.omwteam.com/sChart/demo.html)
+[click here](http://open.omwteam.com/sChart/demo.html)
 
 ## Doc
-- [中文](http://test.omwteam.com/sChart/index.html)
-- [English](http://test.omwteam.com/sChart/en.html)
+- [中文](http://open.omwteam.com/sChart/index.html)
+- [English](http://open.omwteam.com/sChart/en.html)
 
 ## Chart Types
 The following chart types are implemented:
