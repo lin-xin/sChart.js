@@ -4,8 +4,10 @@
 ## Demo
 [click here](http://open.omwteam.com/sChart/demo.html)
 
+![demo](http://open.omwteam.com/sChart/static/img/demo.jpg)
+
 ## Doc
-- [中文](http://open.omwteam.com/sChart/index.html)
+- [中文文档](http://open.omwteam.com/sChart/index.html)
 - [English](http://open.omwteam.com/sChart/en.html)
 
 ## Chart Types
