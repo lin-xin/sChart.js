@@ -1,6 +1,13 @@
 # sChart.js
 > :bar_chart: *Small &amp; simple HTML5 charts*
 
+<p>
+  <a href="https://www.npmjs.com/package/schart.js"><img src="https://img.shields.io/npm/dm/schart.js.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/schart.js"><img src="https://img.shields.io/npm/v/schart.js.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/schart.js"><img src="https://img.shields.io/npm/l/schart.js.svg" alt="License"></a>
+  <br>
+</p>
+
 ## Demo
 [click here](http://open.omwteam.com/sChart/demo.html)
 
