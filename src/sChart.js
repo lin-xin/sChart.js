@@ -20,18 +20,18 @@
     function sChart(canvas, type, data, options) {
         this.canvas = document.getElementById(canvas);
         this.ctx = this.canvas.getContext('2d');
+        this.dpi = window.devicePixelRatio || 1;
         this.type = type;
         this.data = data; // 存放图表数据
         this.dataLength = this.data.length; // 图表数据的长度
         this.showValue = true; // 是否在图表中显示数值
-        this.autoWidth = false; // 宽高自适应
-        this.width = this.canvas.width; // canvas 宽度
-        this.height = this.canvas.height; // canvas 高度
-        // this.padding = 50; // canvas 内边距
-        this.topPadding = 50;
-        this.leftPadding = 50;
-        this.rightPadding = 0;
-        this.bottomPadding = 50;
+        this.autoWidth = false; // 宽高是否自适应
+        this.width = this.canvas.width * this.dpi; // canvas 宽度
+        this.height = this.canvas.height * this.dpi; // canvas 高度
+        this.topPadding = 50 * this.dpi;
+        this.leftPadding = 50 * this.dpi;
+        this.rightPadding = 0 * this.dpi;
+        this.bottomPadding = 50 * this.dpi;
         this.yEqual = 5; // y轴分成5等分
         this.yLength = 0; // y轴坐标点之间的真实长度
         this.xLength = 0; // x轴坐标点之间的真实长度
@@ -44,32 +44,43 @@
         this.titleColor = '#000000'; // 图表标题颜色
         this.title = ''; // 图表标题
         this.titlePosition = 'top'; // 图表标题位置: top / bottom
-        this.radius = 100; // 饼图半径和环形图外圆半径
-        this.innerRadius = 70; // 环形图内圆半径
+        this.radius = 100 * this.dpi; // 饼图半径和环形图外圆半径
+        this.innerRadius = 70 * this.dpi; // 环形图内圆半径
         this.colorList = ['#1E9FFF', '#13CE66', '#F7BA2A', '#FF4949', '#72f6ff', '#199475', '#e08031', '#726dd1']; // 饼图颜色列表
         this.legendColor = '#000000'; // 图例文字颜色
-        this.legendTop = 40; // 图例距离顶部高度
+        this.legendTop = 40 * this.dpi; // 图例距离顶部高度
         this.totalValue = this.getTotalValue(); // 获取饼图数据总和
         this.init(options);
     }
     sChart.prototype = {
         init: function (options) {
-        	if(this.dataLength === 0){
+            if (this.dataLength === 0) {
                 return false;
             }
             if (options) {
+                var dpiList = ['topPadding', 'leftPadding', 'rightPadding', 'bottomPadding', 'radius', 'innerRadius', 'legendTop'];
                 for (var key in options) {
                     if (key === 'colorList' && Array.isArray(options[key])) {
                         this[key] = options[key].concat(this[key])
+                    } else if (dpiList.indexOf(key) > -1) {
+                        this[key] = options[key] * this.dpi;
                     } else {
                         this[key] = options[key];
                     }
                 }
             }
-            if(options.autoWidth){
-                this.width = this.canvas.width = this.canvas.parentNode.offsetWidth;
-                this.height = this.canvas.height = this.canvas.parentNode.offsetHeight;
+
+            // 如果设置了自动宽高的话，则就宽高设为父元素的宽高
+            if (options.autoWidth) {
+                this.width = this.canvas.width = this.canvas.parentNode.offsetWidth * this.dpi;
+                this.height = this.canvas.height = this.canvas.parentNode.offsetHeight * this.dpi;
+                this.canvas.setAttribute('style', 'width:' + this.canvas.parentNode.offsetWidth + 'px;height:' + this.canvas.parentNode.offsetHeight + 'px;')
+            } else {
+                this.canvas.setAttribute('style', 'width:' + this.canvas.width + 'px;height:' + this.canvas.height + 'px;');
+                this.canvas.width *= this.dpi;
+                this.canvas.height *= this.dpi;
             }
+
             if (this.type === 'bar' || this.type === 'line') {
                 this.yLength = Math.floor((this.height - this.topPadding - this.bottomPadding - 10) / this.yEqual);
                 this.xLength = Math.floor((this.width - this.leftPadding - this.rightPadding - 10) / this.dataLength);
@@ -114,7 +125,7 @@
                 this.data[i].bottom = this.height - this.bottomPadding;
 
                 // 绘制折线
-                if (this.type === 'line') {                    
+                if (this.type === 'line') {
                     this.ctx.beginPath();
                     this.ctx.arc(this.data[i].left + this.xLength / 4, this.data[i].top, 2, 0, 2 * Math.PI, true);
                     this.ctx.fill();
@@ -132,8 +143,8 @@
                         this.data[i].bottom - this.data[i].top
                     );
                 }
-                if(this.showValue){
-                    this.ctx.font = '12px Arial'
+                if (this.showValue) {
+                    this.ctx.font = 12 * this.dpi + 'px Arial'
                     this.ctx.fillText(
                         this.data[i].value,
                         this.data[i].left + this.xLength / 4,
@@ -229,7 +240,7 @@
         drawPoint: function () {
             // x轴坐标点
             this.ctx.beginPath();
-            this.ctx.font = '12px Microsoft YaHei';
+            this.ctx.font = 12 * this.dpi + 'px Microsoft YaHei';
             this.ctx.textAlign = 'center';
             this.ctx.fillStyle = this.axisColor;
             for (var i = 0; i < this.dataLength; i++) {
@@ -237,13 +248,13 @@
                 var xlen = this.xLength * (i + 1);
                 this.ctx.moveTo(this.leftPadding + xlen + 0.5, this.height - this.bottomPadding + 0.5);
                 this.ctx.lineTo(this.leftPadding + xlen + 0.5, this.height - this.bottomPadding + 5.5);
-                this.ctx.fillText(name, this.leftPadding + xlen - this.xLength / 2, this.height - this.bottomPadding + 15);
+                this.ctx.fillText(name, this.leftPadding + xlen - this.xLength / 2, this.height - this.bottomPadding + 15 * this.dpi);
             }
             this.ctx.stroke();
 
             // y轴坐标点
             this.ctx.beginPath();
-            this.ctx.font = '12px Microsoft YaHei';
+            this.ctx.font = 12 * this.dpi + 'px Microsoft YaHei';
             this.ctx.textAlign = 'right';
             this.ctx.fillStyle = this.axisColor;
             this.ctx.moveTo(this.leftPadding + 0.5, this.height - this.bottomPadding + 0.5);
@@ -273,7 +284,7 @@
                 this.ctx.beginPath();
                 this.ctx.textAlign = 'center';
                 this.ctx.fillStyle = this.titleColor;
-                this.ctx.font = '16px Microsoft YaHei';
+                this.ctx.font = 16 * this.dpi + 'px Microsoft YaHei';
                 if (this.titlePosition === 'bottom' && this.bottomPadding >= 40) {
                     this.ctx.fillText(this.title, this.width / 2, this.height - 5)
                 } else {
@@ -287,11 +298,11 @@
         drawLegend: function () {
             for (var i = 0; i < this.dataLength; i++) {
                 this.ctx.fillStyle = this.colorList[i];
-                this.ctx.fillRect(10, this.legendTop + 20 * i, 20, 11);
+                this.ctx.fillRect(10, this.legendTop + 15 * i * this.dpi, 20, 11);
                 this.ctx.fillStyle = this.legendColor;
-                this.ctx.font = '12px Microsoft YaHei';
+                this.ctx.font = 12 * this.dpi + 'px Microsoft YaHei';
                 this.ctx.textAlign = 'left';
-                this.ctx.fillText(this.data[i].name, 35, 50 + 20 * i);
+                this.ctx.fillText(this.data[i].name, 35, this.legendTop + 10 + 15 * i * this.dpi);
             }
         },
         /**

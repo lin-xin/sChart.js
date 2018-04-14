@@ -4,30 +4,39 @@
     <title>sChart.js 演示</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <script>
         document.documentElement.style.fontSize = window.screen.width / 7.5 + 'px';
     </script>
     <style>
+        .main{
+            text-align: center;
+        }
         .canvas-wrapper{
             width: 7rem;
             height: 5rem;
+
+
+            /* 避免在PC端显示太大 */
+            display: inline-block;
+            margin: auto;
+            max-width: 500px;
+            max-height: 400px;
         }
     </style>
 </head>
 <body>
+    <div class="main">
         <div class="canvas-wrapper">
+            <!-- 在移动端上使用rem单位，需要设置父元素宽高 -->
             <canvas id="canvas1"></canvas>
-            <canvas id="canvas2" width="350" height="250"></canvas>
         </div>
-        
-        
-        <div></div>
-    <!-- <div class="main"> -->
-        <!-- <canvas id="canvas3" width="500" height="400"></canvas>
+
+        <!-- 固定高度应该设置width和height属性，而不是设置在style属性里 -->
+        <canvas id="canvas2" width="500" height="400"></canvas>
+        <canvas id="canvas3" width="500" height="400"></canvas>
         <canvas id="canvas4" width="500" height="400"></canvas>
-    </div> -->
-    
+    </div>
     <script src="../src/sChart.js"></script>
     <script>
         var data1 = [
@@ -48,28 +57,36 @@
         new sChart('canvas1', 'bar', data1, {
             title: '某商店近年营业总额',
             padding: 30,
-            autoWidth: true,
+            autoWidth: true,   // 设置宽高自适应
             showValue: false,
-            bottomPadding: 30,
-            topPadding: 30
+            bgColor: '#F9EFCC',
+            fillColor: '#00887C',
+            contentColor: 'rgba(46,199,201,0.3)',
+            yEqual: 7
         });
         new sChart('canvas2', 'line', data1, {
             title: '某商店近年营业总额',
-            autoWidth: false,
+            bgColor: '#D5E4EB',
+            titleColor: '#00887C',
+            fillColor: '#00887C',
+            contentColor: 'rgba(46,199,201,0.3)'
             
         });
-        // new sChart('canvas3', 'pie', data2, {
-        //     title: '某商店各商品年度销量',
-        //     bgColor: '#829dca',
-        //     titleColor: '#ffffff',
-        //     legendColor: '#ffffff'
-        // });
-        // new sChart('canvas4', 'ring', data2, {
-        //     title: '某商店各商品年度销量',
-        //     bgColor: '#829daa',
-        //     titleColor: '#ffffff',
-        //     legendColor: '#ffffff'
-        // });
+        new sChart('canvas3', 'pie', data2, {
+            title: '某商店各商品年度销量',
+            bgColor: '#829dca',
+            titleColor: '#ffffff',
+            legendColor: '#ffffff',
+            radius: 120
+        });
+        new sChart('canvas4', 'ring', data2, {
+            title: '某商店各商品年度销量',
+            bgColor: '#829daa',
+            titleColor: '#ffffff',
+            legendColor: '#ffffff',
+            radius: 120,
+            innerRadius:80
+        });
     </script>
 </body>
 </html>
