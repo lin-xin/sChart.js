@@ -1,5 +1,5 @@
 /*!
- * sChart JavaScript Library v1.0.2
- * http://test.omwteam.com/sChart/ | Released under the MIT license
- * Date: 2017-07-12T18:59Z
+ * sChart JavaScript Library v1.1.0
+ * http://blog.gdfengshuo.com/example/sChart/ | Released under the MIT license
+ * Date: 2018-04-15T18:59Z
  */
