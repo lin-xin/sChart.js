@@ -9,13 +9,15 @@
 </p>
 
 ## Demo
-[click here](http://open.omwteam.com/sChart/demo.html)
 
-![demo](http://open.omwteam.com/sChart/static/img/demo.jpg)
+- [Demo](http://blog.gdfengshuo.com/example/sChart/demo.html)
+- [Demo code](https://github.com/lin-xin/sChart.js/blob/master/example/chart.html)
+
+![demo](http://blog.gdfengshuo.com/example/sChart/static/img/demo.png)
 
 ## Doc
-- [中文文档](http://open.omwteam.com/sChart/index.html)
-- [English](http://open.omwteam.com/sChart/en.html)
+- [中文文档](http://blog.gdfengshuo.com/example/sChart/index.html)
+- [English](http://blog.gdfengshuo.com/example/sChart/en.html)
 
 ## Chart Types
 The following chart types are implemented:
@@ -26,93 +28,136 @@ The following chart types are implemented:
 - Ring Charts
 
 ## Usage
-Install:
+### Install:
 ```
 npm install schart.js
 ```
-
-Create a Canvas element with an id attribute, width and height:
-
-```html
-<canvas id="canvas" width="500" height="400"></canvas>
-```
-
-Initialize the chart using Javascript:
+### using Javascript
 
 ```js
 new sChart(canvasId, type, data, options)
 ```
 
-Take bar charts for example:
+### example
 
-```js
-// Bar Charts
-var data = [
-    {name:'2014', value:2260},
-    {name:'2015', value:1170},
-    {name:'2016', value:970},
-    {name:'2017', value:1450}
-]
-new sChart('canvas', 'bar', data, {
-    title: '商店近年营业总额'		// The title of a bar chart
-});
+```html
+<body>
+    <canvas id="canvas" width="500" height="400"></canvas>
+
+    <script src="sChart.min.js"></script>
+    <script>
+        // Bar Charts
+        var data = [
+            {name:'2014', value:2260},
+            {name:'2015', value:1170},
+            {name:'2016', value:970},
+            {name:'2017', value:1450}
+        ]
+        new sChart('canvas', 'bar', data, {
+            title: '商店近年营业总额'		// The title of a bar chart
+        });
+    </script>
+</body>
+```
+
+### Use rem or % in the mobile
+```html
+<body>
+    <div class="schart-wrapper" style="width: 7rem;height: 4rem">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script src="sChart.min.js"></script>
+    <script>
+        var data = [
+            {name:'2014', value:2260},
+            {name:'2015', value:1170},
+            {name:'2016', value:970},
+            {name:'2017', value:1450}
+        ]
+        new sChart('canvas', 'bar', data, {
+            title: '商店近年营业总额',
+            autoWidth: true     // 设置宽高自适应父元素宽高
+        });
+    </script>
+</body>
 ```
 
 ## Options
 
-#### title
+### title
 String.The title of chart.
 Default is null.
 
-#### titleColor
+### titleColor
 String.Title Color.
 Default is '#000000'.
 
-#### titlePosition
+### titlePosition
 String.Title position.
 Default is 'top'.
 
-#### bgColor
+### showValue
+Display the value in the chart.
+Default is true.
+
+### autoWidth
+Adaptive width and height.
+Default is false.
+
+### bgColor
 String.The background color of chart.
 Default is '#ffffff'.
 
-#### padding
-Number.Inside margin of chart.
+### topPadding
+Number.Inside top margin of chart.
 Default is 50.
 
-#### yEqual
+### bottomPadding
+Number.Inside bottom margin of chart.
+Default is 50.
+
+### leftPadding
+Number.Inside left margin of chart.
+Default is 50.
+
+### rightPadding
+Number.Inside right margin of chart.
+Default is 0.
+
+### yEqual
 Number.The number of points on the Y axis.
 Default is 5.
 
-#### fillColor
+### fillColor
 String.The color of bar chart or line chart.
 Default is '#1E9FFF'.
 
-#### axisColor
+### axisColor
 String.The color of the coordinate axis.
 Default is '#666666'.
 
-#### contentColor
+### contentColor
 String.The color of the horizontal lines of the content.
 Default is '#eeeeee'.
 
-#### radius
+### radius
 Number.The radius of a pie chart or ring chart.
 Default is 100.
 
-#### innerRadius
+### innerRadius
 Number.The inner radius of a ring chart.
 Default is 700.
 
-#### colorList
+### colorList
 Array.The color list of a pie chart or ring chart.
 Default is ['#1E9FFF', '#13CE66', '#F7BA2A', '#FF4949', '#72f6ff'];
 
-#### legendColor
+### legendColor
 String.The color of the legend text.
 Default is '#000000'.
 
-#### legendTop
+### legendTop
 Number.Legend position of top.
 Default is 40.
 
