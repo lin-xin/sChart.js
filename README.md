@@ -9,9 +9,11 @@
 </p>
 
 ## Demo
-[Demo](http://blog.gdfengshuo.com/example/sChart/demo.html)  [Demo code](https://github.com/lin-xin/sChart.js/blob/master/example/chart.html)
 
-[!demo](http://blog.gdfengshuo.com/example/sChart/static/img/demo.png)
+- [Demo](http://blog.gdfengshuo.com/example/sChart/demo.html)
+- [Demo code](https://github.com/lin-xin/sChart.js/blob/master/example/chart.html)
+
+![demo](http://blog.gdfengshuo.com/example/sChart/static/img/demo.png)
 
 ## Doc
 - [中文文档](http://blog.gdfengshuo.com/example/sChart/index.html)
