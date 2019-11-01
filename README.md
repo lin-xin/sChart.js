@@ -8,16 +8,17 @@
   <br>
 </p>
 
+## Document
+- [中文文档](https://lin-xin.gitee.io/example/schart/)
+- [English](https://lin-xin.gitee.io/example/schart/en/)
+
 ## Demo
 
-- [Demo](http://blog.gdfengshuo.com/example/sChart/demo.html)
-- [Demo code](https://github.com/lin-xin/sChart.js/blob/master/example/chart.html)
+![柱状图](https://lin-xin.gitee.io/example/schart/assets/img/1.6ad92a2c.png)
+![折线图](https://lin-xin.gitee.io/example/schart/assets/img/2.c260f420.png)
+![饼状图](https://lin-xin.gitee.io/example/schart/assets/img/3.bfe79000.png)
+![环形图](https://lin-xin.gitee.io/example/schart/assets/img/4.5db72d39.png)
 
-![demo](http://blog.gdfengshuo.com/example/sChart/static/img/demo.png)
-
-## Doc
-- [中文文档](http://blog.gdfengshuo.com/example/sChart/index.html)
-- [English](http://blog.gdfengshuo.com/example/sChart/en.html)
 
 ## Chart Types
 The following chart types are implemented:

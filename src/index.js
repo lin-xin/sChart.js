@@ -395,7 +395,7 @@ class Schart {
                     ctx.fillText(text, x + (5 * i + 3) * S10 + textWidth, this.canvas.height - legend.bottom);
                 } else {
                     ctx.fillRect(S10, legend.top + 2 * S10 * i, 2 * S10, S10);
-                    ctx.fillStyle = legend.olor;
+                    ctx.fillStyle = legend.color;
                     ctx.fillText(text, 4 * S10, legend.top + 2 * S10 * i + 0.5 * S10);
                 }
                 textWidth += Math.ceil(ctx.measureText(text).width);
