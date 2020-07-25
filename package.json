@@ -1,8 +1,8 @@
 {
 	"name": "schart.js",
-	"version": "3.0.3",
+	"version": "3.0.4",
 	"description": "Small & simple HTML5 charts",
-	"main": "lib/schart.min.js",
+	"main": "lib/sChart.min.js",
 	"directories": {
 		"lib": "lib"
 	},
